@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta charset="utf-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+		<title>SVG stack preview | svg-sprite</title>
+		<style>@charset "UTF-8";body{padding:0;margin:0;color:#666;background:#fafafa;font-family:Arial,Helvetica,sans-serif;font-size:1em;line-height:1.4}header{display:block;padding:3em 3em 2em 3em;background-color:#fff}header p{margin:2em 0 0 0}section{border-top:1px solid #eee;padding:2em 3em 0 3em}section ul{margin:0;padding:0}section li{display:inline;display:inline-block;background-color:#fff;position:relative;margin:0 2em 2em 0;vertical-align:top;border:1px solid #ccc;padding:1em 1em 3em 1em;cursor:default}.icon-box{margin:0;width:144px;height:144px;position:relative;background:#ccc url("data:image/gif;base64,R0lGODlhDAAMAIAAAMzMzP///yH/C1hNUCBEYXRhWE1QPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS4wLWMwNjEgNjQuMTQwOTQ5LCAyMDEwLzEyLzA3LTEwOjU3OjAxICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1LjEgV2luZG93cyIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozQjk4OTI0MUY5NTIxMUUyQkJDMEI5NEFEM0Y1QTYwQyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozQjk4OTI0MkY5NTIxMUUyQkJDMEI5NEFEM0Y1QTYwQyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjNCOTg5MjNGRjk1MjExRTJCQkMwQjk0QUQzRjVBNjBDIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjNCOTg5MjQwRjk1MjExRTJCQkMwQjk0QUQzRjVBNjBDIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+Af/+/fz7+vn49/b19PPy8fDv7u3s6+rp6Ofm5eTj4uHg397d3Nva2djX1tXU09LR0M/OzczLysnIx8bFxMPCwcC/vr28u7q5uLe2tbSzsrGwr66trKuqqainpqWko6KhoJ+enZybmpmYl5aVlJOSkZCPjo2Mi4qJiIeGhYSDgoGAf359fHt6eXh3dnV0c3JxcG9ubWxramloZ2ZlZGNiYWBfXl1cW1pZWFdWVVRTUlFQT05NTEtKSUhHRkVEQ0JBQD8+PTw7Ojk4NzY1NDMyMTAvLi0sKyopKCcmJSQjIiEgHx4dHBsaGRgXFhUUExIREA8ODQwLCgkIBwYFBAMCAQAAIfkEAAAAAAAsAAAAAAwADAAAAhaEH6mHmmzcgzJAUG/NVGrfOZ8YLlABADs=") top left repeat;border:1px solid #ccc;display:table-cell;vertical-align:middle;text-align:center}.icon{display:inline;display:inline-block}h1{margin-top:0}h2{margin:0;padding:0;font-size:1em;font-weight:normal;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;position:absolute;left:1em;right:1em;bottom:1em}footer{display:block;margin:0;padding:0 3em 3em 3em}footer p{margin:0;font-size:.7em}footer a{color:#0f7595;margin-left:0}</style>
+
+<!--
+
+Sprite shape dimensions
+====================================================================================================
+You will need to set the sprite shape dimensions via CSS when you use them as stack SVGs, otherwise
+they would become a huge 100% in size. You may use the following dimension classes for doing so.
+They might well be outsourced to an external stylesheet of course.
+
+-->
+
+<style type="text/css">
+	.svg-airpods-dims { width: 24px; height: 24px; }
+	.svg-attachment-dims { width: 24px; height: 24px; }
+	.svg-bulb-dims { width: 24px; height: 24px; }
+	.svg-facebook-dims { width: 8px; height: 14px; }
+	.svg-flip-dims { width: 24px; height: 24px; }
+	.svg-google-dims { width: 13px; height: 13px; }
+	.svg-lte-dims { width: 24px; height: 24px; }
+	.svg-lte--big-dims { width: 36px; height: 36px; }
+	.svg-path-dims { width: 32px; height: 18px; }
+	.svg-path--big-dims { width: 48px; height: 28px; }
+	.svg-swiss-knife-dims { width: 36px; height: 36px; }
+	.svg-thunder-move-dims { width: 24px; height: 24px; }
+	.svg-twitter-dims { width: 14px; height: 12px; }
+</style>
+
+<!--
+====================================================================================================
+-->
+
+	</head>
+	<body>
+		<header>
+			<h1>SVG stack preview</h1>
+			<p>This preview features an SVG stack. Please have a look at the HTML source for further details and be aware of the following constraints:</p>
+			<ul>
+				<li>Your browser has to <a href="http://caniuse.com/#feat=svg-fragment" target="_blank" rel="noopener noreferrer">support SVG fragment identifiers</a> for SVG stacks to work.</li>
+				<li>Support for SVG fragment identifiers hasn't always been that decent. For older browsers you will have to use some prolyfill like <a href="https://github.com/preciousforever/SVG-Stacker/blob/master/fixsvgstack.jquery.js" target="_blank" rel="noopener noreferrer">fixsvgstack.jquery.js</a>.</li>
+			</ul>
+		</header>
+		<section>
+
+<!--
+
+SVG stack
+====================================================================================================
+These SVG images make use of fragment identifiers (IDs) to reference certain portions of the
+external sprite. By default, all shapes inside the sprite are hidden by CSS. The `:target` pseudo
+selector is used to show the very shape that is referenced by the fragment identifier.
+
+-->
+
+			<ul>
+
+				<li title="airpods">
+					<div class="icon-box">
+
+						<!-- airpods -->
+						<img src="../svg-sprite/svg-sprite.svg#airpods" class="svg-airpods-dims" alt="airpods"/>
+
+					</div>
+					<h2>airpods</h2>
+				</li>
+				<li title="attachment">
+					<div class="icon-box">
+
+						<!-- attachment -->
+						<img src="../svg-sprite/svg-sprite.svg#attachment" class="svg-attachment-dims" alt="attachment"/>
+
+					</div>
+					<h2>attachment</h2>
+				</li>
+				<li title="bulb">
+					<div class="icon-box">
+
+						<!-- bulb -->
+						<img src="../svg-sprite/svg-sprite.svg#bulb" class="svg-bulb-dims" alt="bulb"/>
+
+					</div>
+					<h2>bulb</h2>
+				</li>
+				<li title="facebook">
+					<div class="icon-box">
+
+						<!-- facebook -->
+						<img src="../svg-sprite/svg-sprite.svg#facebook" class="svg-facebook-dims" alt="facebook"/>
+
+					</div>
+					<h2>facebook</h2>
+				</li>
+				<li title="flip">
+					<div class="icon-box">
+
+						<!-- flip -->
+						<img src="../svg-sprite/svg-sprite.svg#flip" class="svg-flip-dims" alt="flip"/>
+
+					</div>
+					<h2>flip</h2>
+				</li>
+				<li title="google">
+					<div class="icon-box">
+
+						<!-- google -->
+						<img src="../svg-sprite/svg-sprite.svg#google" class="svg-google-dims" alt="google"/>
+
+					</div>
+					<h2>google</h2>
+				</li>
+				<li title="lte">
+					<div class="icon-box">
+
+						<!-- lte -->
+						<img src="../svg-sprite/svg-sprite.svg#lte" class="svg-lte-dims" alt="lte"/>
+
+					</div>
+					<h2>lte</h2>
+				</li>
+				<li title="lte--big">
+					<div class="icon-box">
+
+						<!-- lte--big -->
+						<img src="../svg-sprite/svg-sprite.svg#lte--big" class="svg-lte--big-dims" alt="lte--big"/>
+
+					</div>
+					<h2>lte--big</h2>
+				</li>
+				<li title="path">
+					<div class="icon-box">
+
+						<!-- path -->
+						<img src="../svg-sprite/svg-sprite.svg#path" class="svg-path-dims" alt="path"/>
+
+					</div>
+					<h2>path</h2>
+				</li>
+				<li title="path--big">
+					<div class="icon-box">
+
+						<!-- path--big -->
+						<img src="../svg-sprite/svg-sprite.svg#path--big" class="svg-path--big-dims" alt="path--big"/>
+
+					</div>
+					<h2>path--big</h2>
+				</li>
+				<li title="swiss-knife">
+					<div class="icon-box">
+
+						<!-- swiss-knife -->
+						<img src="../svg-sprite/svg-sprite.svg#swiss-knife" class="svg-swiss-knife-dims" alt="swiss-knife"/>
+
+					</div>
+					<h2>swiss-knife</h2>
+				</li>
+				<li title="thunder-move">
+					<div class="icon-box">
+
+						<!-- thunder-move -->
+						<img src="../svg-sprite/svg-sprite.svg#thunder-move" class="svg-thunder-move-dims" alt="thunder-move"/>
+
+					</div>
+					<h2>thunder-move</h2>
+				</li>
+				<li title="twitter">
+					<div class="icon-box">
+
+						<!-- twitter -->
+						<img src="../svg-sprite/svg-sprite.svg#twitter" class="svg-twitter-dims" alt="twitter"/>
+
+					</div>
+					<h2>twitter</h2>
+				</li>
+			</ul>
+
+<!--
+====================================================================================================
+-->
+
+		</section>
+		<footer>
+			<p>Generated at Tue, 02 Nov 2021 12:27:51 GMT by <a href="https://github.com/svg-sprite/svg-sprite" target="_blank" rel="noopener noreferrer">svg-sprite</a>.</p>
+		</footer>
+	</body>
+</html>
