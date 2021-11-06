@@ -27,7 +27,7 @@
 =bgi_webp($bg-url)
   @supports (-webkit-appearance:none)
     background:
-      image: url('../img/' + #{$bg-url})
+      image: url('../img/#{$bg-url}.webp')
 
 
 //===== Transition:
@@ -48,12 +48,12 @@
 
 //===== Responsive media queries:
 
-// Mobile first:
-=media-up($breakpoint)
-  @media (min-width: $breakpoint + px)
+// Desktop first:
+=md-max($breakpoint)
+  @media (max-width: #{$breakpoint - 1} + px)
     @content
 
-// Desktop first:
-=media-down($breakpoint)
-  @media (max-width: #{$breakpoint - 1} + px)
+// Mobile first:
+=md-min($breakpoint)
+  @media (min-width: $breakpoint + px)
     @content

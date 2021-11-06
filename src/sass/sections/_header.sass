@@ -4,7 +4,8 @@
   left: 0
   z-index: $zindex-header
   width: 100%
-  +media-down($bp-md)
+
+  +md-max($bp-md)
     &::after
       content: ''
       position: absolute
@@ -13,29 +14,31 @@
       z-index: $zindex-overlay
       +box(100%)
     &.is-active
-      position: fixed
       &::after
+        position: fixed
+        min-height: 7rem
+        height: initial
         background: $gradient
 
   // .header__container
   &__container
-    max-width: 1130px
+    max-width: $container-large + px
 
   // .header__inner
   &__inner
     display: grid
-    +media-down($bp-md)
-      min-height: 7rem
-    +media-up($bp-xs)
+
+    +md-min($bp-xs)
       column-gap: 2.2rem
       grid-template-columns: 4rem 1fr
-    +media-up($bp-md)
+      min-height: 7rem
+    +md-min($bp-md)
       grid-template-columns: 3.6rem 1fr minmax(24.4rem, auto)
       align-items: center
       min-height: 12rem
-    +media-up($bp-lg)
+    +md-min($bp-lg)
       column-gap: 4.4rem
-    +media-up($bp-xl)
+    +md-min($bp-xl)
       min-height: 19.6rem
 
   // .header__logo
@@ -63,16 +66,16 @@
     &::after
       bottom: 1.1rem
 
-    +media-down($bp-md)
+    +md-max($bp-md)
       display: none
-    +media-down($bp-sm)
+    +md-max($bp-sm)
       display: block
       place-self: center end
       z-index: $zindex-logo
 
   // .header__menu
   &__menu
-    +media-down($bp-md)
+    +md-max($bp-md)
       position: fixed
       top: 0
       left: -120%
@@ -83,38 +86,51 @@
 
       overflow-y: auto
       -webkit-overflow-scrolling: touch
-
       background: $gradient
       +trs(all, .5s)
+
       &.is-active
         left: 0
         opacity: 1
 
   // .header__list
   &__list
-    +media-down($bp-md)
+    +md-max($bp-md)
       position: relative
       z-index: $zindex-hamburger
-    +media-up($bp-md)
+    +md-min($bp-md)
       display: grid
       gap: .5rem 2rem
       grid-template-columns: repeat(5, min-content)
 
-  // .header__list-items
-  &__list-items
-    +media-down($bp-md)
+  // .header__list-item
+  &__list-item
+    +md-max($bp-md)
       margin-bottom: 3.5rem
       text-indent: 1.5rem
       border-bottom: .1rem solid #b5b5b5
+      transform: translateX(-100%)
 
-  // .header__list-links
-  &__list-links
+    .header__menu.is-active &
+      transform: translateX(0)
+
+      @for $i from 1 through 5
+        $delay: $i * .1
+        &:nth-child(#{$i})
+          @if $i == 1
+            transition: transform .4s ease-out
+          @else
+            transition: transform .4s ease-out #{$delay + s}
+
+  // .header__list-link
+  &__list-link
     font-size: 1.2rem
     text-transform: uppercase
     letter-spacing: .2rem
     color: #b5b5b5
     +trs(color)
-    +media-down($bp-md)
+
+    +md-max($bp-md)
       font-size: 3rem
 
     .no-touch &:hover
@@ -122,13 +138,21 @@
 
   // .header__buttons
   &__buttons
-    +media-down($bp-md)
+    +md-max($bp-md)
       position: relative
       z-index: $zindex-buttons
       justify-self: end
-    +media-down($bp-sm)
-      padding-left: 1.5rem
-    +media-up($bp-sm)
+    +md-max($bp-sm)
+      padding:
+        right: 1.5rem
+        left: 1.5rem
+      transform: translateX(-100%)
+
+      .header__menu.is-active &
+        transform: translateX(0)
+        transition: transform .4s ease-out .6s
+
+    +md-min($bp-sm)
       align-self: center
 
     .button

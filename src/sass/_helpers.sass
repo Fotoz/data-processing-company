@@ -8,7 +8,7 @@
   padding:
     right: 1.5rem
     left: 1.5rem
-  +media-down($bp-sm)
+  +md-max($bp-sm)
     padding:
       right: 1rem
       left: 1rem
@@ -34,9 +34,11 @@
   height: 100%
   object-fit: cover
 
-// .page
-//   position: relative
+.page
+  position: relative
+  background: $gradient
 
 .page,
-.of-hidden
+.of-hidden,
+.no-scroll
   overflow: hidden

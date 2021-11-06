@@ -8,5 +8,7 @@ $(function () {
 
 @@include('scripts/mmenu.js')
 
+@@include('scripts/reasons__modal.js')
+
 @@include('scripts/dynamic-adapt.js')
 });

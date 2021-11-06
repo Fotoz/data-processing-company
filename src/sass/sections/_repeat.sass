@@ -5,7 +5,8 @@
   display: none
   font-size: 0
   text-align: left
-  +media-down($bp-md)
+
+  +md-max($bp-md)
     display: block
     position: relative
     z-index: $zindex-hamburger
@@ -53,6 +54,10 @@
     min-width: 11.2rem
     height: 3.6rem
 
+    +md-max($bp-sm)
+      min-width: 13rem
+      height: 4.6rem
+
   // .button--big
   &--big
     min-width: 16.4rem
@@ -79,7 +84,7 @@
 
   // .title--main
   &--main
-    font-size: 4.4rem
+    +resp-val(font-size, 4.4, 3.6, $container-large)
     line-height: 1.13
 
   // .title--small

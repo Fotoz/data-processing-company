@@ -9,7 +9,7 @@ $('.hamburger').on('click', function (event) {
 });
 
 // Hide the menu and return the standard view of the hamburger:
-$('.header__list-links, .button').on('click', function (event) {
+$('.header__list-link, .button').on('click', function (event) {
   event.preventDefault();
 
   $('.hamburger, .header__menu, .header').removeClass('is-active');
@@ -17,7 +17,7 @@ $('.header__list-links, .button').on('click', function (event) {
 });
 
 // Resetting scroll for menu:
-$('.hamburger, .header__list-links, .button').on('click', function (event) {
+$('.hamburger, .header__list-link, .button').on('click', function (event) {
   event.preventDefault();
 
   $('.header__menu').delay(350).queue(function (reset_scroll) {
