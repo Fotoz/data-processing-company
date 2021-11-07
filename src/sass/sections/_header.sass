@@ -14,10 +14,8 @@
       z-index: $zindex-overlay
       +box(100%)
     &.is-active
+      position: fixed
       &::after
-        position: fixed
-        min-height: 7rem
-        height: initial
         background: $gradient
 
   // .header__container
