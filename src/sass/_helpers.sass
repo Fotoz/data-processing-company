@@ -18,6 +18,14 @@
     top: $s-padd + rem
     bottom: $s-padd + rem
 
+%animated-scrolling
+  opacity: 0
+  +trs(opacity, 1.25s)
+  transition-delay: .3s
+
+  &.anim-item--is-active
+    opacity: 1
+
 
 //===== Extra classes:
 .container

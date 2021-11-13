@@ -1,6 +1,8 @@
 .partners
   +resp-val(padding-bottom, 10, 6)
 
+  @extend %animated-scrolling
+
   // .partners__container
   &__container
     position: relative
@@ -27,13 +29,11 @@
   &__inner
     +md-min($bp-xs)
       position: relative
-      z-index: 7
+      z-index: $zindex-section
       display: grid
-      row-gap: 4rem
-      column-gap: 1.5rem
+      gap: 3.5rem 1.5rem
       justify-items: center
     @media (min-width: 375px)
-      row-gap: 3.5rem
       grid-template-columns: repeat(2, auto)
     +md-min($bp-sm)
       grid-template-columns: repeat(3, auto)

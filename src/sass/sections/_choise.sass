@@ -1,6 +1,8 @@
 .choise
   +resp-val(padding-bottom, 15, 6)
 
+  @extend %animated-scrolling
+
   // .choise__header
   &__header
     margin-bottom: 5rem
@@ -19,7 +21,7 @@
   &__inner
     +md-min($bp-xs)
       position: relative
-      z-index: 7
+      z-index: $zindex-section
       display: grid
       row-gap: 3.5rem
       grid-template-columns: 290px

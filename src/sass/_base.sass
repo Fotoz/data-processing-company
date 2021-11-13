@@ -1,7 +1,6 @@
 //===== Basic settings:
 body
   min-width: $body-miw + px
-  // background: $gradient
 
 ul
   margin-bottom: 0
@@ -27,8 +26,7 @@ textarea
     outline: none
 
 ::placeholder
-  color: #777
-  opacity: 1
+  color: rgba($white, .2)
 
 :focus::placeholder
   color: transparent
@@ -36,3 +34,16 @@ textarea
 ::selection
   color: $white
   background-color: $accent
+
+// Scrollbar customization for WebKit browsers:
+@media (any-hover: hover)
+  ::-webkit-scrollbar
+    width: 1.5rem
+
+  ::-webkit-scrollbar-track
+    background-color: $body-color
+
+  ::-webkit-scrollbar-thumb
+    background-color: $primary
+    border-radius: .8rem
+    border: .3rem solid $body-color

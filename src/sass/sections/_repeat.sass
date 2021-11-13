@@ -67,8 +67,11 @@
   &--send
     min-width: 12.8rem
     height: 5.6rem
-    border-radius: 0 .3rem .3rem 0
+    border-radius: 0 .5rem .5rem 0
     box-shadow: none
+
+    +md-max($bp-sm)
+      border-radius: .5rem
 
 
 // .title
@@ -89,6 +92,40 @@
 
   // .title--small
   &--small
-    font-size: 3.6rem
+    +resp-val(font-size, 3.6, 2.8, $container-large)
     line-height: 1.16
     letter-spacing: .33px
+
+  // .title--xsmall
+  &--xsmall
+    font-size: 2.6rem
+    letter-spacing: .0325rem
+
+
+// .toTop-button
+.toTop-button
+  position: fixed
+  right: -12rem
+  bottom: 2rem
+  z-index: $zindex-toTop-button
+
+  display: flex
+  justify-content: center
+  align-items: center
+  +box(4.5rem)
+
+  opacity: .7
+  border-radius: 1rem
+  background-color: #8476aa
+  +trs()
+
+  &.is-active
+    right: 2rem
+
+  .no-touch &:hover
+    opacity: 1
+    cursor: pointer
+
+  img
+    +box(3rem)
+    transform: translateX(-.1rem)

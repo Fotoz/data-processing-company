@@ -11,4 +11,8 @@ $(function () {
 @@include('scripts/reasons__modal.js')
 
 @@include('scripts/dynamic-adapt.js')
+
+@@include('scripts/toTop-button.js')
+
+@@include('scripts/animated-scrolling.js')
 });
